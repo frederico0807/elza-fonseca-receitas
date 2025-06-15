@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Book, Star, Settings } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -29,7 +28,7 @@ const Index = () => {
       id: 'paes',
       title: 'Receitas de Pães Sem Glúten e Sem Lactose',
       description: 'Aprenda a fazer pães deliciosos e saudáveis para toda a família',
-      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=400&h=300&fit=crop',
+      image: 'https://i.imgur.com/mMsmFAj.jpeg',
       recipes: [
         { 
           title: 'Pão de Forma Integral', 
@@ -119,7 +118,7 @@ const Index = () => {
       id: 'biscoitos',
       title: 'Receitas de Biscoitos Sem Glúten e Sem Lactose',
       description: 'Biscoitos crocantes e saborosos para acompanhar o café',
-      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=400&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1465144038136-46273834b3fb?w=400&h=300&fit=crop',
       recipes: [
         { 
           title: 'Biscoito de Aveia e Canela', 
