@@ -94,10 +94,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 to-green-50">
-      <div className="container mx-auto px-4 pb-20">
-        <WelcomeSection />
-        
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <div className="container mx-auto px-4 pb-20">
+          <WelcomeSection />
+          
           <TabsContent value="aulas" className="mt-6">
             <div className="space-y-6">
               {modules.map((module) => (
@@ -113,35 +113,35 @@ const Index = () => {
           <TabsContent value="configuracoes" className="mt-6">
             <SettingsSection />
           </TabsContent>
-        </Tabs>
-      </div>
+        </div>
 
-      {/* Menu inferior fixo */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-rose-100 shadow-lg">
-        <TabsList className="grid w-full grid-cols-3 h-16 bg-transparent p-2">
-          <TabsTrigger 
-            value="aulas" 
-            className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
-          >
-            <Book size={20} />
-            <span className="text-xs font-medium">Aulas</span>
-          </TabsTrigger>
-          <TabsTrigger 
-            value="novidades" 
-            className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
-          >
-            <Star size={20} />
-            <span className="text-xs font-medium">Novidades</span>
-          </TabsTrigger>
-          <TabsTrigger 
-            value="configuracoes" 
-            className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
-          >
-            <Settings size={20} />
-            <span className="text-xs font-medium">Config</span>
-          </TabsTrigger>
-        </TabsList>
-      </div>
+        {/* Menu inferior fixo */}
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-rose-100 shadow-lg">
+          <TabsList className="grid w-full grid-cols-3 h-16 bg-transparent p-2">
+            <TabsTrigger 
+              value="aulas" 
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
+            >
+              <Book size={20} />
+              <span className="text-xs font-medium">Aulas</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="novidades" 
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
+            >
+              <Star size={20} />
+              <span className="text-xs font-medium">Novidades</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="configuracoes" 
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
+            >
+              <Settings size={20} />
+              <span className="text-xs font-medium">Config</span>
+            </TabsTrigger>
+          </TabsList>
+        </div>
+      </Tabs>
     </div>
   );
 };
