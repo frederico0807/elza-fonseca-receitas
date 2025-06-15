@@ -31,13 +31,13 @@ const Index = () => {
       image: 'https://i.imgur.com/mMsmFAj.jpeg',
       recipes: [
         { 
-          title: 'Pão de Forma Integral', 
+          title: 'Pães sem glúten e lactose', 
           description: 'Receita básica perfeita para o dia a dia',
           pdfUrl: 'https://drive.google.com/file/d/1i_LNrIZp40Lf4FvwA7j4uHrwuVL6yZvu/preview'
         },
         { 
-          title: 'Pão Doce de Coco', 
-          description: 'Delicioso pão doce para o café da manhã',
+          title: 'Pães low carb', 
+          description: 'Deliciosos pães com baixo teor de carboidratos',
           prepTime: '2h30min',
           servings: '8 porções',
           ingredients: [
@@ -61,34 +61,6 @@ const Index = () => {
             'Deixe crescer mais 45 minutos',
             'Asse a 170°C por 35 minutos'
           ]
-        },
-        { 
-          title: 'Pão de Batata Doce', 
-          description: 'Nutritivo e saboroso, ideal para lanches',
-          prepTime: '2 horas',
-          servings: '1 pão',
-          ingredients: [
-            '300g de batata doce cozida e amassada',
-            '400g de farinha de arroz',
-            '100g de polvilho azedo',
-            '10g de fermento seco',
-            '2 colheres de chá de sal',
-            '2 colheres de sopa de mel',
-            '200ml de água morna',
-            '3 colheres de sopa de azeite'
-          ],
-          instructions: [
-            'Cozinhe e amasse a batata doce',
-            'Misture as farinhas com sal',
-            'Dissolva fermento na água com mel',
-            'Combine batata doce, azeite e mistura do fermento',
-            'Adicione aos ingredientes secos gradualmente',
-            'Sove até massa homogênea',
-            'Primeira fermentação: 1 hora',
-            'Modele e coloque na forma',
-            'Segunda fermentação: 40 minutos',
-            'Asse a 180°C por 45 minutos'
-          ]
         }
       ]
     },
@@ -99,8 +71,8 @@ const Index = () => {
       image: 'https://i.imgur.com/eAhfNat.jpeg',
       recipes: [
         { 
-          title: 'Bolo de Chocolate Simples', 
-          description: 'Bolo macio e chocolatudo perfeito para qualquer hora',
+          title: 'Bolos sem glúten e lactose', 
+          description: 'Bolo macio e saudável perfeito para qualquer hora',
           prepTime: '1 hora',
           servings: '12 fatias',
           ingredients: [
@@ -126,14 +98,14 @@ const Index = () => {
           ]
         },
         { 
-          title: 'Bolo de Cenoura com Cobertura', 
-          description: 'Clássico bolo de cenoura com cobertura de chocolate',
+          title: 'Bolos zero açúcar', 
+          description: 'Deliciosos bolos doces sem açúcar refinado',
           prepTime: '1h30min',
           servings: '16 fatias',
           ingredients: [
             '3 cenouras médias',
             '300g de farinha de arroz',
-            '200g de açúcar de coco',
+            '200g de adoçante natural',
             '4 ovos',
             '150ml de óleo de coco',
             '1 colher de sopa de fermento',
@@ -141,7 +113,7 @@ const Index = () => {
           ],
           instructions: [
             'Bata cenouras, ovos e óleo no liquidificador',
-            'Misture farinha, açúcar e fermento',
+            'Misture farinha, adoçante e fermento',
             'Combine os ingredientes líquidos aos secos',
             'Asse em forma untada a 180°C por 50 minutos',
             'Para cobertura: derreta chocolate com leite de coco',
@@ -157,7 +129,7 @@ const Index = () => {
       image: 'https://i.imgur.com/I3nOpWv.jpeg',
       recipes: [
         { 
-          title: 'Biscoito de Aveia e Canela', 
+          title: 'Biscoitos sem glúten e lactose', 
           description: 'Crocante e aromático, perfeito com chá',
           prepTime: '30 minutos',
           servings: '24 biscoitos',
@@ -182,14 +154,14 @@ const Index = () => {
           ]
         },
         { 
-          title: 'Cookies de Chocolate', 
-          description: 'Indulgência saudável sem culpa',
+          title: 'Biscoitos zero açúcar', 
+          description: 'Indulgência saudável sem açúcar refinado',
           prepTime: '25 minutos',
           servings: '20 cookies',
           ingredients: [
             '200g de farinha de amêndoas',
             '100g de farinha de arroz',
-            '150g de açúcar de coco',
+            '150g de adoçante natural',
             '100g de chocolate 70% picado',
             '100ml de óleo de coco',
             '2 ovos',
@@ -198,7 +170,7 @@ const Index = () => {
           ],
           instructions: [
             'Derreta o chocolate com óleo de coco',
-            'Bata ovos com açúcar até cremoso',
+            'Bata ovos com adoçante até cremoso',
             'Adicione chocolate derretido',
             'Misture farinhas, bicarbonato e sal',
             'Combine todos os ingredientes',
@@ -215,7 +187,7 @@ const Index = () => {
       image: 'https://i.imgur.com/Vl4eOI4.jpeg',
       recipes: [
         { 
-          title: 'Ganache de Chocolate 70%', 
+          title: 'Recheios sem glúten e lactose', 
           description: 'Cobertura rica e cremosa sem lactose',
           prepTime: '15 minutos',
           servings: '400ml',
@@ -235,19 +207,19 @@ const Index = () => {
           ]
         },
         { 
-          title: 'Recheio de Frutas Vermelhas', 
-          description: 'Doçura natural e vitaminas',
+          title: 'Recheios zero açúcar', 
+          description: 'Doçura natural sem açúcar refinado',
           prepTime: '20 minutos',
           servings: '300ml',
           ingredients: [
             '300g de frutas vermelhas mistas',
-            '3 colheres de sopa de açúcar demerara',
+            '3 colheres de sopa de adoçante natural',
             '2 colheres de sopa de água',
             '1 colher de sopa de amido de milho',
             'Suco de 1/2 limão'
           ],
           instructions: [
-            'Cozinhe as frutas com açúcar em fogo baixo',
+            'Cozinhe as frutas com adoçante em fogo baixo',
             'Dissolva o amido na água fria',
             'Adicione à panela mexendo sempre',
             'Cozinhe até engrossar',
