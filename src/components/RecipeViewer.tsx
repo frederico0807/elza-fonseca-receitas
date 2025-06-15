@@ -2,6 +2,7 @@
 import React from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface Recipe {
   title: string;
@@ -33,11 +34,13 @@ const RecipeViewer = ({ recipe, isOpen, onClose }: RecipeViewerProps) => {
             </DialogTitle>
           </DialogHeader>
           
-          <div className="h-[75vh] w-full">
+          <div className="h-[75vh] w-full relative">
             <iframe
-              src={`${recipe.pdfUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+              src={`${recipe.pdfUrl}#view=FitH&toolbar=0&navpanes=0&scrollbar=1&zoom=100`}
               className="w-full h-full border-0 rounded-lg"
               title={recipe.title}
+              loading="lazy"
+              sandbox="allow-same-origin allow-scripts"
             />
           </div>
         </DialogContent>

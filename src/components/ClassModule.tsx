@@ -71,7 +71,7 @@ const ClassModule = ({ module }: ClassModuleProps) => {
                 onClick={() => handleViewRecipe(recipe)}
                 className="w-full bg-rose-500 hover:bg-rose-600 text-white rounded-full py-3 text-sm font-medium transition-colors"
               >
-                <Eye size={16} className="mr-2" />
+                <Eye size={16} className="mr-2 text-rose-100" />
                 Ver Receita
               </Button>
             </div>
