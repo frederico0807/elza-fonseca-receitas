@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -25,7 +24,7 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
       return;
     }
 
-    if (username === 'cliente158' && password === 'portal123') {
+    if (username === 'usuário158' && password === 'portal123') {
       onLogin();
     } else {
       setError('Login ou senha incorretos. Tente novamente.');
