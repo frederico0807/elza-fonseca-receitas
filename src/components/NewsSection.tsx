@@ -9,56 +9,6 @@ const NewsSection = () => {
     // Aqui você redirecionaria para a página do curso/produto
   };
 
-  const dessertRecipes = [
-    { 
-      title: 'Mousse de Maracujá', 
-      description: 'Sobremesa refrescante e cremosa',
-      prepTime: '20 minutos + 4h geladeira',
-      servings: '6 porções',
-      ingredients: [
-        '400ml de leite de coco gelado',
-        '1/2 xícara de polpa de maracujá',
-        '6 colheres de sopa de açúcar de coco',
-        '2 colheres de sopa de ágar-ágar',
-        '1/4 xícara de água',
-        'Sementes de 1 maracujá'
-      ],
-      instructions: [
-        'Dissolva o ágar-ágar na água',
-        'Aqueça até dissolver completamente',
-        'Bata o leite de coco até formar picos',
-        'Adicione açúcar e polpa de maracujá',
-        'Incorpore o ágar dissolvido morno',
-        'Distribua em taças',
-        'Leve à geladeira por 4 horas',
-        'Decore com sementes antes de servir'
-      ]
-    },
-    { 
-      title: 'Pudim de Chia', 
-      description: 'Rico em fibras e ômega 3',
-      prepTime: '10 minutos + overnight',
-      servings: '4 porções',
-      ingredients: [
-        '4 colheres de sopa de chia',
-        '400ml de leite de coco',
-        '3 colheres de sopa de maple syrup',
-        '1 colher de chá de essência de baunilha',
-        'Frutas para decorar',
-        '1 pitada de sal'
-      ],
-      instructions: [
-        'Misture todos os ingredientes líquidos',
-        'Adicione a chia e misture bem',
-        'Aguarde 5 minutos e misture novamente',
-        'Cubra e refrigere overnight',
-        'Misture antes de servir',
-        'Decore com frutas frescas',
-        'Sirva gelado'
-      ]
-    }
-  ];
-
   return (
     <div className="space-y-6">
       <Card className="border-rose-100 shadow-sm">
@@ -93,19 +43,6 @@ const NewsSection = () => {
             Finalize suas refeições com doçura e saúde
           </p>
         </CardHeader>
-
-        <CardContent className="bg-white space-y-4">
-          {dessertRecipes.map((recipe, index) => (
-            <div key={index} className="p-4 bg-rose-50 rounded-lg border border-rose-100">
-              <h4 className="font-medium text-rose-800 mb-2">{recipe.title}</h4>
-              <p className="text-sm text-rose-600 mb-3">{recipe.description}</p>
-              <div className="flex gap-4 text-xs text-rose-500 mb-3">
-                <span>⏱️ {recipe.prepTime}</span>
-                <span>🍽️ {recipe.servings}</span>
-              </div>
-            </div>
-          ))}
-        </CardContent>
       </Card>
 
       {/* Upsells */}
