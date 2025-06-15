@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
 
 interface LoginPageProps {
   onLogin: () => void;
@@ -12,11 +13,17 @@ interface LoginPageProps {
 const LoginPage = ({ onLogin }: LoginPageProps) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    if (!acceptedTerms) {
+      setError('Você deve aceitar os termos de privacidade e termos de uso para continuar.');
+      return;
+    }
 
     if (username === 'cliente158' && password === 'portal123') {
       onLogin();
@@ -68,6 +75,17 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
                 placeholder="Digite sua senha"
                 required
               />
+            </div>
+            <div className="flex items-start space-x-2">
+              <Checkbox
+                id="terms"
+                checked={acceptedTerms}
+                onCheckedChange={(checked) => setAcceptedTerms(checked as boolean)}
+                className="mt-1"
+              />
+              <Label htmlFor="terms" className="text-sm text-rose-700 leading-tight">
+                Aceito os termos de privacidade e termos de uso da área de membros
+              </Label>
             </div>
             {error && (
               <div className="p-3 bg-red-50 border border-red-200 rounded-lg">

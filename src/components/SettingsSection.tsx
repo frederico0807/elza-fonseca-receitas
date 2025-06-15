@@ -167,7 +167,7 @@ const SettingsSection = ({ onLogout }: SettingsSectionProps) => {
                 <strong>Usuário:</strong> cliente158
               </p>
               <p className="text-sm text-rose-600">
-                <strong>Membro desde:</strong> Janeiro 2024
+                <strong>Ativa desde:</strong> 2025
               </p>
             </div>
           </CardContent>
