@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Book, Star, Settings } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -34,29 +33,7 @@ const Index = () => {
         { 
           title: 'Pão de Forma Integral', 
           description: 'Receita básica perfeita para o dia a dia',
-          prepTime: '2 horas',
-          servings: '1 pão',
-          ingredients: [
-            '500g de farinha de arroz integral',
-            '100g de fécula de batata',
-            '50g de polvilho doce',
-            '10g de fermento biológico seco',
-            '2 colheres de chá de sal',
-            '1 colher de sopa de açúcar demerara',
-            '300ml de água morna',
-            '3 colheres de sopa de azeite'
-          ],
-          instructions: [
-            'Misture os ingredientes secos em uma tigela grande',
-            'Em outra tigela, dissolva o fermento na água morna com açúcar',
-            'Adicione o azeite à mistura do fermento',
-            'Una os ingredientes úmidos aos secos e misture bem',
-            'Sove a massa por 10 minutos até ficar lisa',
-            'Deixe crescer por 1 hora em local morno',
-            'Modele o pão e coloque na forma untada',
-            'Deixe crescer por mais 30 minutos',
-            'Asse em forno pré-aquecido a 180°C por 40 minutos'
-          ]
+          pdfUrl: 'https://drive.google.com/file/d/1i_LNrIZp40Lf4FvwA7j4uHrwuVL6yZvu/preview'
         },
         { 
           title: 'Pão Doce de Coco', 

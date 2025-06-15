@@ -10,6 +10,7 @@ interface Recipe {
   instructions?: string[];
   prepTime?: string;
   servings?: string;
+  pdfUrl?: string;
 }
 
 interface RecipeViewerProps {
@@ -21,6 +22,30 @@ interface RecipeViewerProps {
 const RecipeViewer = ({ recipe, isOpen, onClose }: RecipeViewerProps) => {
   if (!recipe) return null;
 
+  // Se tem PDF, mostra o PDF
+  if (recipe.pdfUrl) {
+    return (
+      <Dialog open={isOpen} onOpenChange={onClose}>
+        <DialogContent className="max-w-4xl max-h-[90vh] w-[95vw]">
+          <DialogHeader>
+            <DialogTitle className="text-rose-800 text-xl font-medium">
+              {recipe.title}
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="h-[75vh] w-full">
+            <iframe
+              src={`${recipe.pdfUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+              className="w-full h-full border-0 rounded-lg"
+              title={recipe.title}
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  // Caso contrário, mostra o conteúdo tradicional
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl max-h-[80vh]">

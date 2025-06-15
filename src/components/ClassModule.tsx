@@ -72,7 +72,7 @@ const ClassModule = ({ module }: ClassModuleProps) => {
                 className="w-full bg-rose-500 hover:bg-rose-600 text-white rounded-full py-3 text-sm font-medium transition-colors"
               >
                 <Eye size={16} className="mr-2" />
-                👁️ Ver Receita
+                Ver Receita
               </Button>
             </div>
           ))}
