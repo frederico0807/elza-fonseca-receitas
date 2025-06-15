@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Book, Star, Settings } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -115,10 +116,68 @@ const Index = () => {
       ]
     },
     {
+      id: 'bolos',
+      title: 'Receitas de Bolos Sem Glúten e Sem Lactose',
+      description: 'Bolos fofinhos e saborosos para todas as ocasiões',
+      image: 'https://i.imgur.com/eAhfNat.jpeg',
+      recipes: [
+        { 
+          title: 'Bolo de Chocolate Simples', 
+          description: 'Bolo macio e chocolatudo perfeito para qualquer hora',
+          prepTime: '1 hora',
+          servings: '12 fatias',
+          ingredients: [
+            '200g de farinha de arroz',
+            '100g de farinha de amêndoas',
+            '50g de cacau em pó',
+            '200g de açúcar demerara',
+            '300ml de leite de coco',
+            '100ml de óleo de coco',
+            '2 ovos',
+            '1 colher de sopa de fermento em pó',
+            '1 colher de chá de essência de baunilha'
+          ],
+          instructions: [
+            'Pré-aqueça o forno a 180°C',
+            'Misture os ingredientes secos em uma tigela',
+            'Bata os ovos com açúcar até clarear',
+            'Adicione leite de coco, óleo e baunilha',
+            'Incorpore aos ingredientes secos',
+            'Despeje na forma untada',
+            'Asse por 40-45 minutos',
+            'Teste com palito antes de desenformar'
+          ]
+        },
+        { 
+          title: 'Bolo de Cenoura com Cobertura', 
+          description: 'Clássico bolo de cenoura com cobertura de chocolate',
+          prepTime: '1h30min',
+          servings: '16 fatias',
+          ingredients: [
+            '3 cenouras médias',
+            '300g de farinha de arroz',
+            '200g de açúcar de coco',
+            '4 ovos',
+            '150ml de óleo de coco',
+            '1 colher de sopa de fermento',
+            'Para cobertura: 200g chocolate 70%, 200ml leite de coco'
+          ],
+          instructions: [
+            'Bata cenouras, ovos e óleo no liquidificador',
+            'Misture farinha, açúcar e fermento',
+            'Combine os ingredientes líquidos aos secos',
+            'Asse em forma untada a 180°C por 50 minutos',
+            'Para cobertura: derreta chocolate com leite de coco',
+            'Cubra o bolo frio com a cobertura'
+          ]
+        }
+      ]
+    },
+    {
       id: 'biscoitos',
       title: 'Receitas de Biscoitos Sem Glúten e Sem Lactose',
       description: 'Biscoitos crocantes e saborosos para acompanhar o café',
-      image: 'https://images.unsplash.com/photo-1465144038136-46273834b3fb?w=400&h=300&fit=crop',
+      image: 'https://i.imgur.com/I3nOpWv.jpeg',
       recipes: [
         { 
           title: 'Biscoito de Aveia e Canela', 
@@ -176,7 +235,7 @@ const Index = () => {
       id: 'recheios',
       title: 'Receitas de Recheios e Coberturas Saudáveis',
       description: 'Complemente suas criações com sabores incríveis',
-      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=300&fit=crop',
+      image: 'https://i.imgur.com/Vl4eOI4.jpeg',
       recipes: [
         { 
           title: 'Ganache de Chocolate 70%', 
@@ -217,61 +276,6 @@ const Index = () => {
             'Cozinhe até engrossar',
             'Finalize com suco de limão',
             'Deixe esfriar antes de usar'
-          ]
-        }
-      ]
-    },
-    {
-      id: 'sobremesas',
-      title: 'Sobremesas Saudáveis Sem Glúten e Sem Lactose',
-      description: 'Finalize suas refeições com doçura e saúde',
-      image: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=400&h=300&fit=crop',
-      recipes: [
-        { 
-          title: 'Mousse de Maracujá', 
-          description: 'Sobremesa refrescante e cremosa',
-          prepTime: '20 minutos + 4h geladeira',
-          servings: '6 porções',
-          ingredients: [
-            '400ml de leite de coco gelado',
-            '1/2 xícara de polpa de maracujá',
-            '6 colheres de sopa de açúcar de coco',
-            '2 colheres de sopa de ágar-ágar',
-            '1/4 xícara de água',
-            'Sementes de 1 maracujá'
-          ],
-          instructions: [
-            'Dissolva o ágar-ágar na água',
-            'Aqueça até dissolver completamente',
-            'Bata o leite de coco até formar picos',
-            'Adicione açúcar e polpa de maracujá',
-            'Incorpore o ágar dissolvido morno',
-            'Distribua em taças',
-            'Leve à geladeira por 4 horas',
-            'Decore com sementes antes de servir'
-          ]
-        },
-        { 
-          title: 'Pudim de Chia', 
-          description: 'Rico em fibras e ômega 3',
-          prepTime: '10 minutos + overnight',
-          servings: '4 porções',
-          ingredients: [
-            '4 colheres de sopa de chia',
-            '400ml de leite de coco',
-            '3 colheres de sopa de maple syrup',
-            '1 colher de chá de essência de baunilha',
-            'Frutas para decorar',
-            '1 pitada de sal'
-          ],
-          instructions: [
-            'Misture todos os ingredientes líquidos',
-            'Adicione a chia e misture bem',
-            'Aguarde 5 minutos e misture novamente',
-            'Cubra e refrigere overnight',
-            'Misture antes de servir',
-            'Decore com frutas frescas',
-            'Sirva gelado'
           ]
         }
       ]

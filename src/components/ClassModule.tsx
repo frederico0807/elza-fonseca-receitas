@@ -48,9 +48,9 @@ const ClassModule = ({ module }: ClassModuleProps) => {
           <img 
             src={module.image} 
             alt={module.title}
-            className="w-full h-48 object-cover"
+            className="w-full h-48 object-cover border-4 border-white rounded-t-lg shadow-md"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-t-lg" />
         </div>
         
         <CardHeader className="bg-white">
