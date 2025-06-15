@@ -25,9 +25,7 @@ const NewsSection = () => {
             <p className="text-green-700 mb-2">
               <strong>Dica da semana:</strong>
             </p>
-            <p className="text-sm text-green-600">
-              Para pães mais macios, deixe a massa descansar por 30 minutos antes de assar. Isso faz toda a diferença!
-            </p>
+            <p className="text-sm text-green-600"></p>
           </div>
         </CardContent>
       </Card>
