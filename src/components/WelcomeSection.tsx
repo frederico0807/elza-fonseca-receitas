@@ -11,9 +11,7 @@ const WelcomeSection = () => {
             <img src="/lovable-uploads/2d8219a9-334d-42b6-836c-4769bab61030.png" alt="Chef Elza Fonseca" className="w-full h-full object-cover" />
           </div>
           <p className="text-rose-700 leading-relaxed text-base md:text-lg max-w-2xl mx-auto"></p>
-          <p className="text-rose-600 mt-3 text-sm md:text-base">
-            Aproveite cada receita, baixe os PDFs para te acompanhar na cozinha e fique de olho nas novidades que eu sempre trago para você!
-          </p>
+          <p className="text-rose-600 mt-3 text-sm md:text-base"></p>
         </div>
       </CardContent>
     </Card>;
