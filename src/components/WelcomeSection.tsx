@@ -11,18 +11,18 @@ const WelcomeSection = ({ activeTab }: WelcomeSectionProps) => {
     switch (activeTab) {
       case 'aulas':
         return {
-          title: 'Seja Bem-Vinda',
-          description: 'Seja muito bem-vinda à sua área exclusiva de receitas! Aqui você terá acesso a todas as receitas exclusivas e atualizadas da Chef Elza. Explore, aprenda e transforme sua cozinha em um laboratório de sabores saudáveis.'
+          title: 'Bem-Vinda ao Seu Universo Gastronômico',
+          description: 'Seja muito bem-vinda ao seu espaço exclusivo de gastronomia saudável! Aqui você descobrirá receitas cuidadosamente desenvolvidas pela Chef Elza, onde cada ingrediente conta uma história de sabor e bem-estar. Transforme sua cozinha em um verdadeiro ateliê culinário.'
         };
       case 'novidades':
         return {
-          title: 'Fique por dentro de todas as Novidades',
-          description: 'Nesta seção você encontrará todos os produtos adicionais e extras do curso. Confira abaixo nossos upsells especiais para aprimorar ainda mais sua jornada culinária.'
+          title: 'Descubra Suas Próximas Experiências Culinárias',
+          description: 'Explore nosso catálogo premium de experiências gastronômicas exclusivas. Aqui você encontrará produtos especialmente selecionados para elevar sua jornada culinária a um novo patamar de excelência e sofisticação.'
         };
       case 'configuracoes':
         return {
-          title: 'Configurações Gerais',
-          description: ''
+          title: 'Centro de Personalização',
+          description: 'Personalize sua experiência e ajuste suas preferências para uma jornada ainda mais conectada com seus objetivos culinários.'
         };
       default:
         return {
