@@ -1,16 +1,27 @@
-
 import React, { useState } from 'react';
-import { Book, Star, Settings, Download } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Book, Star, Settings } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import WelcomeSection from '@/components/WelcomeSection';
 import ClassModule from '@/components/ClassModule';
 import NewsSection from '@/components/NewsSection';
 import SettingsSection from '@/components/SettingsSection';
+import LoginPage from '@/components/LoginPage';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('aulas');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
+  if (!isLoggedIn) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
 
   const modules = [
     {
@@ -111,7 +122,7 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="configuracoes" className="mt-6">
-            <SettingsSection />
+            <SettingsSection onLogout={handleLogout} />
           </TabsContent>
         </div>
 
