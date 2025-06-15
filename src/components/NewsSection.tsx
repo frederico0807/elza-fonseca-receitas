@@ -44,9 +44,7 @@ const NewsSection = () => {
           <p className="text-sm text-green-600 mb-4">
             Descubra como transformar suas receitas de doces saudáveis em um negócio lucrativo. Estratégias completas de vendas e marketing.
           </p>
-          <Button onClick={() => handleUpsellClick('monetizar-doces')} className="w-full bg-green-500 hover:bg-green-600 text-white rounded-full py-3 font-medium">
-            Começar Agora
-          </Button>
+          <Button onClick={() => handleUpsellClick('monetizar-doces')} className="w-full bg-green-500 hover:bg-green-600 text-white rounded-full py-3 font-medium">Começar Agora!</Button>
         </CardContent>
       </Card>
     </div>;
