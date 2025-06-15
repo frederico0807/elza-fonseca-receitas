@@ -1,16 +1,12 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
 const NewsSection = () => {
   const handleUpsellClick = (type: string) => {
     console.log(`Clique no upsell: ${type}`);
     // Aqui você redirecionaria para a página do curso/produto
   };
-
-  return (
-    <div className="space-y-6">
+  return <div className="space-y-6">
       <Card className="border-rose-100 shadow-sm">
         <CardHeader>
           <CardTitle className="text-rose-800 text-xl font-medium">
@@ -22,9 +18,7 @@ const NewsSection = () => {
             <p className="text-rose-700 mb-2">
               <strong>Nova receita adicionada!</strong>
             </p>
-            <p className="text-sm text-rose-600">
-              Confira o delicioso Pão de Batata Doce na seção de Pães. Perfect para um lanche saudável!
-            </p>
+            <p className="text-sm text-rose-600"></p>
           </div>
           
           <div className="p-4 bg-green-50 rounded-lg border border-green-100">
@@ -50,10 +44,7 @@ const NewsSection = () => {
           <p className="text-sm text-orange-700 mb-4">
             Transforme sua paixão pela culinária em uma fonte de renda. Curso completo de empreendedorismo culinário.
           </p>
-          <Button 
-            onClick={() => handleUpsellClick('monetizar')}
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white rounded-full py-3 font-medium"
-          >
+          <Button onClick={() => handleUpsellClick('monetizar')} className="w-full bg-orange-500 hover:bg-orange-600 text-white rounded-full py-3 font-medium">
             Quero Saber Mais
           </Button>
         </CardContent>
@@ -70,16 +61,11 @@ const NewsSection = () => {
           <p className="text-sm text-purple-700 mb-4">
             Acesso às receitas mais especiais da Chef Elza, desenvolvidas exclusivamente para membros premium.
           </p>
-          <Button 
-            onClick={() => handleUpsellClick('premium')}
-            className="w-full bg-purple-500 hover:bg-purple-600 text-white rounded-full py-3 font-medium"
-          >
+          <Button onClick={() => handleUpsellClick('premium')} className="w-full bg-purple-500 hover:bg-purple-600 text-white rounded-full py-3 font-medium">
             Acessar Coleção Premium
           </Button>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
-
 export default NewsSection;
