@@ -72,12 +72,12 @@ const NewsSection = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
         </div>
-        <CardContent className="p-6 text-center">
+        <CardContent className="text-center">
           <div className="mb-4">
             <span className="text-3xl">💰</span>
           </div>
           <h3 className="text-lg font-medium text-green-800 mb-2">
-            Monetizar com Esses Doces
+            Monetizar com Esses Doces 💰
           </h3>
           <p className="text-sm text-green-700 mb-4">
             Descubra como transformar suas receitas de doces saudáveis em um negócio lucrativo. Estratégias completas de vendas e marketing.
