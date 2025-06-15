@@ -17,7 +17,7 @@ const WelcomeSection = ({ activeTab }: WelcomeSectionProps) => {
       case 'novidades':
         return {
           title: 'Fique por dentro de todas as Novidades',
-          description: 'Nesta seção você encontrará todos os produtos adicionais e extras do curso. Confira abaixo nossos upsells especiais para aprimorar ainda mais sua jornada culinária.'
+          description: 'Nesta seção você encontrará produtos adicionais e extras. Confira abaixo todos as receitas extras e feitas com muito amor!'
         };
       case 'configuracoes':
         return {

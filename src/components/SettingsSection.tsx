@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { User, HelpCircle, FileText, Shield, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -55,7 +54,7 @@ const SettingsSection = ({ onLogout }: SettingsSectionProps) => {
               </p>
               <div className="bg-rose-50 p-4 rounded-lg border border-rose-200">
                 <p className="text-rose-800 font-medium text-lg">
-                  +55 (11) 9999-9999
+                  +55 (11) 96265-8729
                 </p>
               </div>
             </div>
