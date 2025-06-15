@@ -39,28 +39,7 @@ const NewsSection = () => {
           <CardTitle className="text-rose-800 text-lg md:text-xl font-medium">
             Sobremesas Saudáveis Sem Glúten e Sem Lactose
           </CardTitle>
-          <p className="text-rose-600 text-sm">
-            Finalize suas refeições com doçura e saúde
-          </p>
         </CardHeader>
-      </Card>
-
-      {/* Upsells */}
-      <Card className="border-orange-200 bg-gradient-to-r from-orange-50 to-orange-100 shadow-sm">
-        <CardContent className="p-6 text-center">
-          <div className="mb-4">
-            <span className="text-3xl">🚀</span>
-          </div>
-          <h3 className="text-lg font-medium text-orange-800 mb-2">
-            Aprenda a Monetizar suas Receitas
-          </h3>
-          <p className="text-sm text-orange-700 mb-4">
-            Transforme sua paixão pela culinária em uma fonte de renda. Curso completo de empreendedorismo culinário.
-          </p>
-          <Button onClick={() => handleUpsellClick('monetizar')} className="w-full bg-orange-500 hover:bg-orange-600 text-white rounded-full py-3 font-medium">
-            Quero Saber Mais
-          </Button>
-        </CardContent>
       </Card>
 
       <Card className="overflow-hidden border-green-200 bg-gradient-to-r from-green-50 to-green-100 shadow-sm">
