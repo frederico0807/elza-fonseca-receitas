@@ -161,15 +161,6 @@ const SettingsSection = ({ onLogout }: SettingsSectionProps) => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-center mb-4">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
-                <img 
-                  src="/lovable-uploads/2d8219a9-334d-42b6-836c-4769bab61030.png" 
-                  alt="Chef Elza Fonseca"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
             <div className="bg-rose-50 p-4 rounded-lg">
               <h4 className="font-medium text-rose-800 mb-2">Dados da Conta</h4>
               <p className="text-sm text-rose-600 mb-1">
@@ -194,15 +185,6 @@ const SettingsSection = ({ onLogout }: SettingsSectionProps) => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-center mb-4">
-            <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
-              <img 
-                src="/lovable-uploads/2d8219a9-334d-42b6-836c-4769bab61030.png" 
-                alt="Chef Elza Fonseca"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
           <div className="space-y-3">
             {settingsOptions.map((option, index) => (
               <button
