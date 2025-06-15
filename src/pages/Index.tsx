@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Book, Star, Settings } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -107,7 +108,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-rose-50 to-green-50">
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <div className="container mx-auto px-4 pb-20">
-          <WelcomeSection />
+          <WelcomeSection activeTab={activeTab} />
           
           <TabsContent value="aulas" className="mt-6">
             <div className="space-y-6">
