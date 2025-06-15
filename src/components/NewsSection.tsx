@@ -1,32 +1,26 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
 const NewsSection = () => {
   const handleUpsellClick = (type: string) => {
     console.log(`Clique no upsell: ${type}`);
     // Aqui você redirecionaria para a página do curso/produto
   };
-  return <div className="space-y-6">
+
+  return (
+    <div className="space-y-6">
       <Card className="border-rose-100 shadow-sm">
         <CardHeader>
           <CardTitle className="text-rose-800 text-xl font-medium">
             Novidades da Chef Elza 🌟
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="p-4 bg-rose-50 rounded-lg border border-rose-100">
-            <p className="text-rose-700 mb-2">
-              <strong>Nova receita adicionada!</strong>
-            </p>
-            <p className="text-sm text-rose-600"></p>
-          </div>
-          
-          <div className="p-4 bg-green-50 rounded-lg border border-green-100">
-            <p className="text-green-700 mb-2">
-              <strong>Dica da semana:</strong>
-            </p>
-            <p className="text-sm text-green-600"></p>
-          </div>
+        <CardContent>
+          <p className="text-rose-600 text-sm">
+            Fique por dentro de todas as novidades atualizadas das minhas receitas
+          </p>
         </CardContent>
       </Card>
 
@@ -64,6 +58,8 @@ const NewsSection = () => {
           </Button>
         </CardContent>
       </Card>
-    </div>;
+    </div>
+  );
 };
+
 export default NewsSection;
