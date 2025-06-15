@@ -11,6 +11,24 @@ const NewsSection = () => {
 
   return (
     <div className="space-y-6">
+      {/* Seção de boas-vindas da Chef Elza */}
+      <Card className="mb-6 border-none bg-gradient-to-r from-rose-100 to-green-100 shadow-sm">
+        <CardContent className="p-6">
+          <div className="text-center">
+            <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+              <img 
+                src="/lovable-uploads/2d8219a9-334d-42b6-836c-4769bab61030.png" 
+                alt="Chef Elza Fonseca"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <p className="text-rose-700 leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
+              Fique por dentro de todas as novidades atualizadas das minhas receitas
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
       <Card className="border-rose-100 shadow-sm">
         <CardHeader>
           <CardTitle className="text-rose-800 text-xl font-medium">
