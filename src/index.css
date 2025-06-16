@@ -144,6 +144,24 @@ img {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  
+  /* Garantir que a navegação inferior fique sempre fixa */
+  body {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Safe area support para dispositivos iOS */
+.safe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Melhorar a fixação da navegação inferior em todos os dispositivos */
+@supports (position: -webkit-sticky) or (position: sticky) {
+  .fixed {
+    position: -webkit-sticky;
+    position: sticky;
+  }
 }
 
 /* Hide Lovable badges and elements */
