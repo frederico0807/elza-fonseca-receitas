@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Book, Star, Settings } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -33,34 +34,12 @@ const Index = () => {
         { 
           title: 'Pães sem glúten e lactose', 
           description: 'Receita básica perfeita para o dia a dia',
-          pdfUrl: 'https://drive.google.com/file/d/1i_LNrIZp40Lf4FvwA7j4uHrwuVL6yZvu/preview'
+          pdfUrl: 'https://drive.google.com/file/d/1VYfD4pbRBXkBoRoCuvew__MerwQu4I7F/preview'
         },
         { 
           title: 'Pães low carb', 
           description: 'Deliciosos pães com baixo teor de carboidratos',
-          prepTime: '2h30min',
-          servings: '8 porções',
-          ingredients: [
-            '400g de farinha de arroz',
-            '100g de farinha de coco',
-            '100ml de leite de coco',
-            '80g de açúcar de coco',
-            '10g de fermento biológico',
-            '2 ovos',
-            '80ml de óleo de coco derretido',
-            '1 colher de chá de sal'
-          ],
-          instructions: [
-            'Misture as farinhas e o sal',
-            'Dissolva o fermento no leite de coco morno',
-            'Bata os ovos com açúcar até clarear',
-            'Adicione o óleo de coco e a mistura do fermento',
-            'Una aos ingredientes secos e sove bem',
-            'Deixe crescer por 1h30min',
-            'Modele em formato desejado',
-            'Deixe crescer mais 45 minutos',
-            'Asse a 170°C por 35 minutos'
-          ]
+          pdfUrl: 'https://drive.google.com/file/d/12UsNq9TT7nk7RmsSlLOl1RVt1NnnNUhA/preview'
         }
       ]
     },
@@ -73,52 +52,12 @@ const Index = () => {
         { 
           title: 'Bolos sem glúten e lactose', 
           description: 'Bolo macio e saudável perfeito para qualquer hora',
-          prepTime: '1 hora',
-          servings: '12 fatias',
-          ingredients: [
-            '200g de farinha de arroz',
-            '100g de farinha de amêndoas',
-            '50g de cacau em pó',
-            '200g de açúcar demerara',
-            '300ml de leite de coco',
-            '100ml de óleo de coco',
-            '2 ovos',
-            '1 colher de sopa de fermento em pó',
-            '1 colher de chá de essência de baunilha'
-          ],
-          instructions: [
-            'Pré-aqueça o forno a 180°C',
-            'Misture os ingredientes secos em uma tigela',
-            'Bata os ovos com açúcar até clarear',
-            'Adicione leite de coco, óleo e baunilha',
-            'Incorpore aos ingredientes secos',
-            'Despeje na forma untada',
-            'Asse por 40-45 minutos',
-            'Teste com palito antes de desenformar'
-          ]
+          pdfUrl: 'https://drive.google.com/file/d/1n7AzPvxwj2VhSfq61ZAk6LWVeOcDE4rH/preview'
         },
         { 
           title: 'Bolos zero açúcar', 
           description: 'Deliciosos bolos doces sem açúcar refinado',
-          prepTime: '1h30min',
-          servings: '16 fatias',
-          ingredients: [
-            '3 cenouras médias',
-            '300g de farinha de arroz',
-            '200g de adoçante natural',
-            '4 ovos',
-            '150ml de óleo de coco',
-            '1 colher de sopa de fermento',
-            'Para cobertura: 200g chocolate 70%, 200ml leite de coco'
-          ],
-          instructions: [
-            'Bata cenouras, ovos e óleo no liquidificador',
-            'Misture farinha, adoçante e fermento',
-            'Combine os ingredientes líquidos aos secos',
-            'Asse em forma untada a 180°C por 50 minutos',
-            'Para cobertura: derreta chocolate com leite de coco',
-            'Cubra o bolo frio com a cobertura'
-          ]
+          pdfUrl: 'https://drive.google.com/file/d/1x6hPkrA7E0en9N0DCIvX3SKAkwDrY3hE/preview'
         }
       ]
     },
@@ -131,52 +70,12 @@ const Index = () => {
         { 
           title: 'Biscoitos sem glúten e lactose', 
           description: 'Crocante e aromático, perfeito com chá',
-          prepTime: '30 minutos',
-          servings: '24 biscoitos',
-          ingredients: [
-            '200g de aveia em flocos',
-            '150g de farinha de arroz',
-            '100g de açúcar demerara',
-            '100ml de óleo de coco',
-            '1 ovo',
-            '2 colheres de chá de canela',
-            '1 colher de chá de essência de baunilha',
-            '1/2 colher de chá de sal'
-          ],
-          instructions: [
-            'Pré-aqueça o forno a 180°C',
-            'Misture aveia, farinha, açúcar, canela e sal',
-            'Em outra tigela, bata ovo, óleo e baunilha',
-            'Combine os ingredientes úmidos aos secos',
-            'Forme bolinhas e achate na assadeira',
-            'Asse por 15-18 minutos até dourar',
-            'Deixe esfriar antes de desenformar'
-          ]
+          pdfUrl: 'https://drive.google.com/file/d/1_-AFGAgZyhubqB8AmyYdLojQkczVn6-y/preview'
         },
         { 
           title: 'Biscoitos zero açúcar', 
           description: 'Indulgência saudável sem açúcar refinado',
-          prepTime: '25 minutos',
-          servings: '20 cookies',
-          ingredients: [
-            '200g de farinha de amêndoas',
-            '100g de farinha de arroz',
-            '150g de adoçante natural',
-            '100g de chocolate 70% picado',
-            '100ml de óleo de coco',
-            '2 ovos',
-            '1 colher de chá de bicarbonato',
-            '1/2 colher de chá de sal'
-          ],
-          instructions: [
-            'Derreta o chocolate com óleo de coco',
-            'Bata ovos com adoçante até cremoso',
-            'Adicione chocolate derretido',
-            'Misture farinhas, bicarbonato e sal',
-            'Combine todos os ingredientes',
-            'Forme cookies na assadeira',
-            'Asse a 170°C por 12-15 minutos'
-          ]
+          pdfUrl: 'https://drive.google.com/file/d/16Occ-ETRKBUWnOG_AZ_ld-E21cCYfHta/preview'
         }
       ]
     },
@@ -189,43 +88,12 @@ const Index = () => {
         { 
           title: 'Recheios sem glúten e lactose', 
           description: 'Cobertura rica e cremosa sem lactose',
-          prepTime: '15 minutos',
-          servings: '400ml',
-          ingredients: [
-            '200g de chocolate 70% cacau',
-            '200ml de leite de coco',
-            '2 colheres de sopa de açúcar de coco',
-            '1 colher de chá de essência de baunilha'
-          ],
-          instructions: [
-            'Pique o chocolate finamente',
-            'Aqueça o leite de coco até quase ferver',
-            'Despeje sobre o chocolate e aguarde 2 minutos',
-            'Misture do centro para fora até ficar liso',
-            'Adicione açúcar e baunilha',
-            'Use quando estiver na temperatura ambiente'
-          ]
+          pdfUrl: 'https://drive.google.com/file/d/1aP2ObJauNKdU2vgXk7m8A4RFbQKCurpj/preview'
         },
         { 
           title: 'Recheios zero açúcar', 
           description: 'Doçura natural sem açúcar refinado',
-          prepTime: '20 minutos',
-          servings: '300ml',
-          ingredients: [
-            '300g de frutas vermelhas mistas',
-            '3 colheres de sopa de adoçante natural',
-            '2 colheres de sopa de água',
-            '1 colher de sopa de amido de milho',
-            'Suco de 1/2 limão'
-          ],
-          instructions: [
-            'Cozinhe as frutas com adoçante em fogo baixo',
-            'Dissolva o amido na água fria',
-            'Adicione à panela mexendo sempre',
-            'Cozinhe até engrossar',
-            'Finalize com suco de limão',
-            'Deixe esfriar antes de usar'
-          ]
+          pdfUrl: 'https://drive.google.com/file/d/1CPNn8hmhW1MS0SjY692090uCcA2ACntq/preview'
         }
       ]
     }
@@ -269,7 +137,7 @@ const Index = () => {
               className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
             >
               <Star size={20} />
-              <span className="text-xs font-medium">Novidades</span>
+              <span className="text-xs font-medium">Bônus</span>
             </TabsTrigger>
             <TabsTrigger 
               value="configuracoes" 

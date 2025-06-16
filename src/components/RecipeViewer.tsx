@@ -2,7 +2,6 @@
 import React from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Skeleton } from '@/components/ui/skeleton';
 
 interface Recipe {
   title: string;
@@ -23,24 +22,28 @@ interface RecipeViewerProps {
 const RecipeViewer = ({ recipe, isOpen, onClose }: RecipeViewerProps) => {
   if (!recipe) return null;
 
-  // Se tem PDF, mostra o PDF
+  // Se tem PDF, mostra o PDF otimizado
   if (recipe.pdfUrl) {
     return (
       <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="max-w-4xl max-h-[90vh] w-[95vw]">
-          <DialogHeader>
+        <DialogContent className="max-w-4xl max-h-[90vh] w-[95vw] p-0">
+          <DialogHeader className="p-6 pb-0">
             <DialogTitle className="text-rose-800 text-xl font-medium">
               {recipe.title}
             </DialogTitle>
           </DialogHeader>
           
-          <div className="h-[75vh] w-full relative">
+          <div className="h-[75vh] w-full relative p-6 pt-2">
             <iframe
-              src={`${recipe.pdfUrl}#view=FitH&toolbar=0&navpanes=0&scrollbar=1&zoom=100`}
-              className="w-full h-full border-0 rounded-lg"
+              src={`${recipe.pdfUrl}#view=FitH&toolbar=0&navpanes=0&scrollbar=0&zoom=100&embedded=true`}
+              className="w-full h-full border-0 rounded-lg bg-white shadow-inner"
               title={recipe.title}
-              loading="lazy"
-              sandbox="allow-same-origin allow-scripts"
+              loading="eager"
+              sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+              style={{ 
+                colorScheme: 'light',
+                backgroundColor: 'white'
+              }}
             />
           </div>
         </DialogContent>

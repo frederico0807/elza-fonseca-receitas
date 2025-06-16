@@ -16,8 +16,8 @@ const WelcomeSection = ({ activeTab }: WelcomeSectionProps) => {
         };
       case 'novidades':
         return {
-          title: 'Fique por dentro de todas as Novidades',
-          description: 'Nesta seção você encontrará produtos adicionais e extras. Confira abaixo todos as receitas extras e feitas com muito amor!'
+          title: 'Fique por dentro de todos os Bônus',
+          description: 'Nesta seção você encontrará produtos adicionais e extras. Confira abaixo todas as receitas extras e feitas com muito amor!'
         };
       case 'configuracoes':
         return {
