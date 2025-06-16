@@ -25,7 +25,14 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
       return;
     }
 
-    if ((username === 'usuário158' || username === 'usuario158') && password === 'portal123') {
+    // Normalizar o nome de usuário removendo espaços e acentos
+    const normalizedUsername = username.toLowerCase().replace(/\s+/g, '').replace(/[àáâãäåāăąç]/g, 'a').replace(/ú/g, 'u');
+    const validUsernames = ['usuario158'];
+    
+    // Verificar senhas válidas
+    const validPasswords = ['portal123', 'Portal123'];
+
+    if (validUsernames.includes(normalizedUsername) && validPasswords.includes(password)) {
       onLogin();
     } else {
       setError('Login ou senha incorretos. Tente novamente.');
