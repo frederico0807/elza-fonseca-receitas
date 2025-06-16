@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Eye } from 'lucide-react';
+import { Eye, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import LazyImage from './LazyImage';
@@ -32,6 +32,29 @@ interface ClassModuleProps {
 const ClassModule = React.memo(({ module }: ClassModuleProps) => {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
+
+  const convertGoogleDriveUrl = (url: string) => {
+    // Converte URL do Google Drive preview para download direto
+    const fileIdMatch = url.match(/\/d\/([a-zA-Z0-9-_]+)/);
+    if (fileIdMatch) {
+      const fileId = fileIdMatch[1];
+      return `https://drive.google.com/uc?export=download&id=${fileId}`;
+    }
+    return url;
+  };
+
+  const handleDownloadRecipe = (recipe: Recipe) => {
+    if (recipe.pdfUrl) {
+      const downloadUrl = convertGoogleDriveUrl(recipe.pdfUrl);
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = `${recipe.title}.pdf`;
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
 
   const handleViewRecipe = (recipe: Recipe) => {
     setSelectedRecipe(recipe);
@@ -70,11 +93,11 @@ const ClassModule = React.memo(({ module }: ClassModuleProps) => {
               <h4 className="font-medium text-rose-800 mb-2">{recipe.title}</h4>
               <p className="text-sm text-rose-600 mb-3">{recipe.description}</p>
               <Button 
-                onClick={() => handleViewRecipe(recipe)}
+                onClick={() => handleDownloadRecipe(recipe)}
                 className="w-full bg-rose-500 hover:bg-rose-600 text-white rounded-full py-3 text-sm font-medium transition-colors"
               >
-                <Eye size={16} className="mr-2 text-rose-100" />
-                Ver Receita
+                <Download size={16} className="mr-2 text-rose-100" />
+                Baixar Receita
               </Button>
             </div>
           ))}

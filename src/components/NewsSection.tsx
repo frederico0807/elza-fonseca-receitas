@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Download } from 'lucide-react';
 import LazyImage from './LazyImage';
 
 const RecipeViewer = React.lazy(() => import('./RecipeViewer'));
@@ -10,14 +11,26 @@ const NewsSection = React.memo(() => {
   const [selectedRecipe, setSelectedRecipe] = useState<any>(null);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
-  const handleRecipeClick = () => {
-    const recipe = {
-      title: 'Receitas que não vão ao fogo',
-      description: 'Deliciosas receitas práticas e saudáveis',
-      pdfUrl: 'https://drive.google.com/file/d/1hIKA7qs-gGrL1ZS5G6px5J8j6ni8hwF5/preview'
-    };
-    setSelectedRecipe(recipe);
-    setIsViewerOpen(true);
+  const convertGoogleDriveUrl = (url: string) => {
+    // Converte URL do Google Drive preview para download direto
+    const fileIdMatch = url.match(/\/d\/([a-zA-Z0-9-_]+)/);
+    if (fileIdMatch) {
+      const fileId = fileIdMatch[1];
+      return `https://drive.google.com/uc?export=download&id=${fileId}`;
+    }
+    return url;
+  };
+
+  const handleRecipeDownload = () => {
+    const pdfUrl = 'https://drive.google.com/file/d/1hIKA7qs-gGrL1ZS5G6px5J8j6ni8hwF5/preview';
+    const downloadUrl = convertGoogleDriveUrl(pdfUrl);
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = 'Receitas que não vão ao fogo.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleCloseViewer = () => {
@@ -53,10 +66,11 @@ const NewsSection = React.memo(() => {
               Deliciosas receitas práticas e saudáveis que não precisam ir ao fogo. Perfeitas para o dia a dia corrido.
             </p>
             <Button 
-              onClick={handleRecipeClick}
+              onClick={handleRecipeDownload}
               className="w-full bg-rose-500 hover:bg-rose-600 text-white rounded-full py-3 font-medium"
             >
-              Saiba Mais!
+              <Download size={16} className="mr-2" />
+              Baixar Receitas
             </Button>
           </CardContent>
         </Card>
