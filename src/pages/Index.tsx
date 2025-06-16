@@ -1,12 +1,20 @@
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Book, Star, Settings } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import WelcomeSection from '@/components/WelcomeSection';
-import ClassModule from '@/components/ClassModule';
-import NewsSection from '@/components/NewsSection';
-import SettingsSection from '@/components/SettingsSection';
-import LoginPage from '@/components/LoginPage';
+
+// Lazy loading de componentes pesados
+const ClassModule = React.lazy(() => import('@/components/ClassModule'));
+const NewsSection = React.lazy(() => import('@/components/NewsSection'));
+const SettingsSection = React.lazy(() => import('@/components/SettingsSection'));
+const LoginPage = React.lazy(() => import('@/components/LoginPage'));
+
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center py-8">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-rose-500"></div>
+  </div>
+);
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('aulas');
@@ -21,7 +29,11 @@ const Index = () => {
   };
 
   if (!isLoggedIn) {
-    return <LoginPage onLogin={handleLogin} />;
+    return (
+      <Suspense fallback={<LoadingSpinner />}>
+        <LoginPage onLogin={handleLogin} />
+      </Suspense>
+    );
   }
 
   const modules = [
@@ -107,18 +119,24 @@ const Index = () => {
           
           <TabsContent value="aulas" className="mt-6">
             <div className="space-y-6">
-              {modules.map((module) => (
-                <ClassModule key={module.id} module={module} />
-              ))}
+              <Suspense fallback={<LoadingSpinner />}>
+                {modules.map((module) => (
+                  <ClassModule key={module.id} module={module} />
+                ))}
+              </Suspense>
             </div>
           </TabsContent>
 
-          <TabsContent value="novidades" className="mt-6">
-            <NewsSection />
+          <TabsContent value="bonus" className="mt-6">
+            <Suspense fallback={<LoadingSpinner />}>
+              <NewsSection />
+            </Suspense>
           </TabsContent>
 
           <TabsContent value="configuracoes" className="mt-6">
-            <SettingsSection onLogout={handleLogout} />
+            <Suspense fallback={<LoadingSpinner />}>
+              <SettingsSection onLogout={handleLogout} />
+            </Suspense>
           </TabsContent>
         </div>
 
@@ -133,7 +151,7 @@ const Index = () => {
               <span className="text-xs font-medium">Aulas</span>
             </TabsTrigger>
             <TabsTrigger 
-              value="novidades" 
+              value="bonus" 
               className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
             >
               <Star size={20} />

@@ -1,12 +1,13 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import LazyImage from './LazyImage';
 
 interface WelcomeSectionProps {
   activeTab: string;
 }
 
-const WelcomeSection = ({ activeTab }: WelcomeSectionProps) => {
+const WelcomeSection = React.memo(({ activeTab }: WelcomeSectionProps) => {
   const getContent = () => {
     switch (activeTab) {
       case 'aulas':
@@ -14,7 +15,7 @@ const WelcomeSection = ({ activeTab }: WelcomeSectionProps) => {
           title: 'Seja Bem-Vinda',
           description: 'Seja muito bem-vinda à sua área exclusiva de receitas! Aqui você terá acesso a todas as receitas exclusivas e atualizadas da Chef Elza. Explore, aprenda e transforme sua cozinha em um laboratório de sabores saudáveis.'
         };
-      case 'novidades':
+      case 'bonus':
         return {
           title: 'Fique por dentro de todos os Bônus',
           description: 'Nesta seção você encontrará produtos adicionais e extras. Confira abaixo todas as receitas extras e feitas com muito amor!'
@@ -42,10 +43,10 @@ const WelcomeSection = ({ activeTab }: WelcomeSectionProps) => {
             {content.title}
           </h1>
           <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
-            <img 
+            <LazyImage 
               src="/lovable-uploads/2d8219a9-334d-42b6-836c-4769bab61030.png" 
               alt="Chef Elza Fonseca" 
-              className="w-full h-full object-cover" 
+              className="w-full h-full"
             />
           </div>
           {content.description && (
@@ -57,6 +58,8 @@ const WelcomeSection = ({ activeTab }: WelcomeSectionProps) => {
       </CardContent>
     </Card>
   );
-};
+});
+
+WelcomeSection.displayName = 'WelcomeSection';
 
 export default WelcomeSection;

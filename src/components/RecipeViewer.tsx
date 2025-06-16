@@ -19,7 +19,7 @@ interface RecipeViewerProps {
   onClose: () => void;
 }
 
-const RecipeViewer = ({ recipe, isOpen, onClose }: RecipeViewerProps) => {
+const RecipeViewer = React.memo(({ recipe, isOpen, onClose }: RecipeViewerProps) => {
   if (!recipe) return null;
 
   // Se tem PDF, mostra o PDF otimizado
@@ -35,10 +35,10 @@ const RecipeViewer = ({ recipe, isOpen, onClose }: RecipeViewerProps) => {
           
           <div className="h-[75vh] w-full relative p-6 pt-2">
             <iframe
-              src={`${recipe.pdfUrl}#view=FitH&toolbar=0&navpanes=0&scrollbar=0&zoom=100&embedded=true`}
+              src={`${recipe.pdfUrl}#view=FitH&toolbar=0&navpanes=0&scrollbar=0&zoom=90&embedded=true&rm=minimal`}
               className="w-full h-full border-0 rounded-lg bg-white shadow-inner"
               title={recipe.title}
-              loading="eager"
+              loading="lazy"
               sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
               style={{ 
                 colorScheme: 'light',
@@ -116,6 +116,8 @@ const RecipeViewer = ({ recipe, isOpen, onClose }: RecipeViewerProps) => {
       </DialogContent>
     </Dialog>
   );
-};
+});
+
+RecipeViewer.displayName = 'RecipeViewer';
 
 export default RecipeViewer;

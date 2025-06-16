@@ -2,9 +2,11 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import RecipeViewer from './RecipeViewer';
+import LazyImage from './LazyImage';
 
-const NewsSection = () => {
+const RecipeViewer = React.lazy(() => import('./RecipeViewer'));
+
+const NewsSection = React.memo(() => {
   const [selectedRecipe, setSelectedRecipe] = useState<any>(null);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
@@ -30,13 +32,12 @@ const NewsSection = () => {
   return (
     <>
       <div className="space-y-6">
-        {/* Receitas que não vão ao fogo */}
         <Card className="overflow-hidden border-rose-100 shadow-sm hover:shadow-md transition-shadow">
-          <div className="relative">
-            <img 
+          <div className="relative h-48">
+            <LazyImage 
               src="https://i.imgur.com/brH2fg4.jpeg" 
               alt="Receitas que não vão ao fogo" 
-              className="w-full h-48 object-cover border-4 border-white rounded-t-lg shadow-md" 
+              className="w-full h-full border-4 border-white rounded-t-lg shadow-md"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-t-lg" />
           </div>
@@ -61,11 +62,11 @@ const NewsSection = () => {
         </Card>
 
         <Card className="overflow-hidden border-green-200 shadow-sm hover:shadow-md transition-shadow">
-          <div className="relative">
-            <img 
+          <div className="relative h-48">
+            <LazyImage 
               src="https://i.imgur.com/5fgkVxb.jpeg" 
               alt="Monetizar com Doces" 
-              className="w-full h-48 object-cover border-4 border-white rounded-t-lg shadow-md" 
+              className="w-full h-full border-4 border-white rounded-t-lg shadow-md"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-t-lg" />
           </div>
@@ -90,13 +91,19 @@ const NewsSection = () => {
         </Card>
       </div>
 
-      <RecipeViewer 
-        recipe={selectedRecipe}
-        isOpen={isViewerOpen}
-        onClose={handleCloseViewer}
-      />
+      {isViewerOpen && (
+        <React.Suspense fallback={<div>Carregando...</div>}>
+          <RecipeViewer 
+            recipe={selectedRecipe}
+            isOpen={isViewerOpen}
+            onClose={handleCloseViewer}
+          />
+        </React.Suspense>
+      )}
     </>
   );
-};
+});
+
+NewsSection.displayName = 'NewsSection';
 
 export default NewsSection;
