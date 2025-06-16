@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
@@ -20,29 +20,62 @@ interface RecipeViewerProps {
 }
 
 const RecipeViewer = React.memo(({ recipe, isOpen, onClose }: RecipeViewerProps) => {
+  const [pdfLoaded, setPdfLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handlePdfLoad = useCallback(() => {
+    setPdfLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setPdfLoaded(false);
+    }
+  }, [isOpen]);
+
   if (!recipe) return null;
 
   // Se tem PDF, mostra o PDF otimizado
   if (recipe.pdfUrl) {
+    const optimizedPdfUrl = `${recipe.pdfUrl}#view=FitH&toolbar=0&navpanes=0&scrollbar=0&zoom=${isMobile ? '75' : '90'}&embedded=true&rm=minimal`;
+
     return (
       <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="max-w-4xl max-h-[90vh] w-[95vw] p-0">
-          <DialogHeader className="p-6 pb-0">
-            <DialogTitle className="text-rose-800 text-xl font-medium">
+        <DialogContent className={`${isMobile ? 'max-w-[95vw] h-[90vh]' : 'max-w-4xl max-h-[90vh]'} w-full p-0`}>
+          <DialogHeader className="p-4 pb-2">
+            <DialogTitle className="text-rose-800 text-lg font-medium truncate">
               {recipe.title}
             </DialogTitle>
           </DialogHeader>
           
-          <div className="h-[75vh] w-full relative p-6 pt-2">
+          <div className={`${isMobile ? 'h-[calc(90vh-80px)]' : 'h-[75vh]'} w-full relative p-4 pt-0`}>
+            {!pdfLoaded && (
+              <div className="absolute inset-4 flex items-center justify-center bg-gray-50 rounded-lg">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-8 h-8 border-2 border-rose-400 border-t-transparent rounded-full animate-spin"></div>
+                  <span className="text-gray-600 text-sm">Carregando PDF...</span>
+                </div>
+              </div>
+            )}
             <iframe
-              src={`${recipe.pdfUrl}#view=FitH&toolbar=0&navpanes=0&scrollbar=0&zoom=90&embedded=true&rm=minimal`}
+              src={optimizedPdfUrl}
               className="w-full h-full border-0 rounded-lg bg-white shadow-inner"
               title={recipe.title}
               loading="lazy"
               sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+              onLoad={handlePdfLoad}
               style={{ 
                 colorScheme: 'light',
-                backgroundColor: 'white'
+                backgroundColor: 'white',
+                opacity: pdfLoaded ? 1 : 0,
+                transition: 'opacity 0.3s ease'
               }}
             />
           </div>
@@ -54,7 +87,7 @@ const RecipeViewer = React.memo(({ recipe, isOpen, onClose }: RecipeViewerProps)
   // Caso contrário, mostra o conteúdo tradicional
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[80vh]">
+      <DialogContent className={`${isMobile ? 'max-w-[95vw] max-h-[80vh]' : 'max-w-2xl max-h-[80vh]'}`}>
         <DialogHeader>
           <DialogTitle className="text-rose-800 text-xl font-medium">
             {recipe.title}

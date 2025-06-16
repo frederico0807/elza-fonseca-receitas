@@ -1,5 +1,5 @@
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useMemo } from 'react';
 import { Book, Star, Settings } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import WelcomeSection from '@/components/WelcomeSection';
@@ -10,11 +10,13 @@ const NewsSection = React.lazy(() => import('@/components/NewsSection'));
 const SettingsSection = React.lazy(() => import('@/components/SettingsSection'));
 const LoginPage = React.lazy(() => import('@/components/LoginPage'));
 
-const LoadingSpinner = () => (
+const LoadingSpinner = React.memo(() => (
   <div className="flex items-center justify-center py-8">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-rose-500"></div>
+    <div className="w-6 h-6 border-2 border-rose-400 border-t-transparent rounded-full animate-spin"></div>
   </div>
-);
+));
+
+LoadingSpinner.displayName = 'LoadingSpinner';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('aulas');
@@ -28,15 +30,8 @@ const Index = () => {
     setIsLoggedIn(false);
   };
 
-  if (!isLoggedIn) {
-    return (
-      <Suspense fallback={<LoadingSpinner />}>
-        <LoginPage onLogin={handleLogin} />
-      </Suspense>
-    );
-  }
-
-  const modules = [
+  // Memoização dos módulos para evitar re-renders desnecessários
+  const modules = useMemo(() => [
     {
       id: 'paes',
       title: 'Receitas de Pães Sem Glúten e Sem Lactose',
@@ -109,16 +104,24 @@ const Index = () => {
         }
       ]
     }
-  ];
+  ], []);
+
+  if (!isLoggedIn) {
+    return (
+      <Suspense fallback={<LoadingSpinner />}>
+        <LoginPage onLogin={handleLogin} />
+      </Suspense>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 to-green-50">
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <div className="container mx-auto px-4 pb-20">
+        <div className="container mx-auto px-3 pb-20">
           <WelcomeSection activeTab={activeTab} />
           
           <TabsContent value="aulas" className="mt-6">
-            <div className="space-y-6">
+            <div className="space-y-4">
               <Suspense fallback={<LoadingSpinner />}>
                 {modules.map((module) => (
                   <ClassModule key={module.id} module={module} />
@@ -141,27 +144,27 @@ const Index = () => {
         </div>
 
         {/* Menu inferior fixo */}
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-rose-100 shadow-lg">
-          <TabsList className="grid w-full grid-cols-3 h-16 bg-transparent p-2">
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-rose-100 shadow-lg z-50">
+          <TabsList className="grid w-full grid-cols-3 h-14 bg-transparent p-1">
             <TabsTrigger 
               value="aulas" 
-              className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600 text-xs"
             >
-              <Book size={20} />
+              <Book size={18} />
               <span className="text-xs font-medium">Aulas</span>
             </TabsTrigger>
             <TabsTrigger 
               value="bonus" 
-              className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600 text-xs"
             >
-              <Star size={20} />
+              <Star size={18} />
               <span className="text-xs font-medium">Bônus</span>
             </TabsTrigger>
             <TabsTrigger 
               value="configuracoes" 
-              className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600"
+              className="flex flex-col items-center gap-1 data-[state=active]:bg-rose-100 data-[state=active]:text-rose-600 text-xs"
             >
-              <Settings size={20} />
+              <Settings size={18} />
               <span className="text-xs font-medium">Config</span>
             </TabsTrigger>
           </TabsList>

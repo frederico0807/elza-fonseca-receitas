@@ -1,5 +1,5 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 interface LazyImageProps {
   src: string;
@@ -8,50 +8,76 @@ interface LazyImageProps {
   placeholder?: string;
 }
 
-const LazyImage = ({ src, alt, className, placeholder }: LazyImageProps) => {
+const LazyImage = React.memo(({ src, alt, className, placeholder }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [hasError, setHasError] = useState(false);
+  const imgRef = useRef<HTMLDivElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const handleLoad = useCallback(() => {
+    setIsLoaded(true);
+  }, []);
+
+  const handleError = useCallback(() => {
+    setHasError(true);
+  }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    if (!imgRef.current || isInView) return;
+
+    observerRef.current = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
-          observer.disconnect();
+          observerRef.current?.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { 
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
     );
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
+    observerRef.current.observe(imgRef.current);
 
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      observerRef.current?.disconnect();
+    };
+  }, [isInView]);
 
   return (
-    <div ref={imgRef} className={className}>
-      {isInView && (
+    <div ref={imgRef} className={`relative overflow-hidden ${className}`}>
+      {isInView && !hasError && (
         <img
           src={src}
           alt={alt}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`w-full h-full object-cover transition-opacity duration-200 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
-          onLoad={() => setIsLoaded(true)}
+          onLoad={handleLoad}
+          onError={handleError}
           loading="lazy"
           decoding="async"
+          style={{ 
+            willChange: isLoaded ? 'auto' : 'opacity',
+            contentVisibility: 'auto'
+          }}
         />
       )}
-      {(!isInView || !isLoaded) && (
-        <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
-          <div className="text-gray-400 text-sm">Carregando...</div>
+      {(!isInView || !isLoaded || hasError) && (
+        <div className="absolute inset-0 w-full h-full bg-gray-100 flex items-center justify-center">
+          {hasError ? (
+            <div className="text-gray-400 text-xs">Erro ao carregar</div>
+          ) : (
+            <div className="w-6 h-6 border-2 border-gray-300 border-t-rose-400 rounded-full animate-spin"></div>
+          )}
         </div>
       )}
     </div>
   );
-};
+});
+
+LazyImage.displayName = 'LazyImage';
 
 export default LazyImage;
