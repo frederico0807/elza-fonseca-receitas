@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
+import LazyImage from './LazyImage';
 
 interface LoginPageProps {
   onLogin: () => void;
@@ -26,10 +27,20 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
     }
 
     // Normalizar o nome de usuário removendo espaços e acentos
-    const normalizedUsername = username.toLowerCase().replace(/\s+/g, '').replace(/[àáâãäåāăąç]/g, 'a').replace(/ú/g, 'u');
-    const validUsernames = ['usuario158'];
+    const normalizedUsername = username.toLowerCase().replace(/\s+/g, '').replace(/[àáâãäåāăąçéêëíîïóôõöúûüñ]/g, (match) => {
+      const map: { [key: string]: string } = {
+        'à': 'a', 'á': 'a', 'â': 'a', 'ã': 'a', 'ä': 'a', 'å': 'a', 'ā': 'a', 'ă': 'a', 'ą': 'a',
+        'ç': 'c',
+        'é': 'e', 'ê': 'e', 'ë': 'e',
+        'í': 'i', 'î': 'i', 'ï': 'i',
+        'ó': 'o', 'ô': 'o', 'õ': 'o', 'ö': 'o',
+        'ú': 'u', 'û': 'u', 'ü': 'u',
+        'ñ': 'n'
+      };
+      return map[match] || match;
+    });
     
-    // Verificar senhas válidas
+    const validUsernames = ['usuario158'];
     const validPasswords = ['portal123', 'Portal123'];
 
     if (validUsernames.includes(normalizedUsername) && validPasswords.includes(password)) {
@@ -43,8 +54,8 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
     <div className="min-h-screen bg-gradient-to-br from-rose-50 to-green-50 flex items-center justify-center p-4">
       <Card className="w-full max-w-md border-rose-100 shadow-lg">
         <CardHeader className="text-center">
-          <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
-            <img 
+          <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-rose-100">
+            <LazyImage 
               src="/lovable-uploads/2d8219a9-334d-42b6-836c-4769bab61030.png" 
               alt="Chef Elza Fonseca"
               className="w-full h-full object-cover"
