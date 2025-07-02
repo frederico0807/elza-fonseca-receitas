@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -48,7 +47,7 @@ const NewsSection = React.memo(() => {
         <Card className="overflow-hidden border-rose-100 shadow-sm hover:shadow-md transition-shadow">
           <div className="relative h-48">
             <LazyImage 
-              src="https://i.imgur.com/brH2fg4.jpeg" 
+              src="https://i.ibb.co/dw7zPHb/download-4.jpg" 
               alt="Receitas que não vão ao fogo" 
               className="w-full h-full border-4 border-white rounded-t-lg shadow-md"
             />
@@ -78,7 +77,7 @@ const NewsSection = React.memo(() => {
         <Card className="overflow-hidden border-green-200 shadow-sm hover:shadow-md transition-shadow">
           <div className="relative h-48">
             <LazyImage 
-              src="https://i.imgur.com/5fgkVxb.jpeg" 
+              src="https://i.ibb.co/Y77hZC0/images.jpg" 
               alt="Monetizar com Doces" 
               className="w-full h-full border-4 border-white rounded-t-lg shadow-md"
             />
