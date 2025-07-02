@@ -1,3 +1,4 @@
+
 import React, { useState, Suspense, useMemo } from 'react';
 import { Book, Star, Settings } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -35,7 +36,6 @@ const Index = () => {
       id: 'paes',
       title: 'Receitas de Pães Sem Glúten e Sem Lactose',
       description: 'Aprenda a fazer pães deliciosos e saudáveis para toda a família',
-      image: 'https://i.ibb.co/1f9rmtW/download.jpg',
       recipes: [
         { 
           title: 'Pães sem glúten e lactose', 
@@ -53,7 +53,6 @@ const Index = () => {
       id: 'bolos',
       title: 'Receitas de Bolos Sem Glúten e Sem Lactose',
       description: 'Bolos fofinhos e saborosos para todas as ocasiões',
-      image: 'https://i.ibb.co/Cs3w2Lc/download-1.jpg',
       recipes: [
         { 
           title: 'Bolos sem glúten e lactose', 
@@ -71,7 +70,6 @@ const Index = () => {
       id: 'biscoitos',
       title: 'Receitas de Biscoitos Sem Glúten e Sem Lactose',
       description: 'Biscoitos crocantes e saborosos para acompanhar o café',
-      image: 'https://i.ibb.co/BK74rbf/download-2.jpg',
       recipes: [
         { 
           title: 'Biscoitos sem glúten e lactose', 
@@ -89,7 +87,6 @@ const Index = () => {
       id: 'recheios',
       title: 'Receitas de Recheios e Coberturas Saudáveis',
       description: 'Complemente suas criações com sabores incríveis',
-      image: 'https://i.ibb.co/jPLD1Kp/download-3.jpg',
       recipes: [
         { 
           title: 'Recheios sem glúten e lactose', 

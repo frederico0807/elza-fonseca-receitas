@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Eye, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import LazyImage from './LazyImage';
 
 const RecipeViewer = React.lazy(() => import('./RecipeViewer'));
 
@@ -21,7 +20,6 @@ interface Module {
   id: string;
   title: string;
   description: string;
-  image: string;
   recipes: Recipe[];
 }
 
@@ -69,15 +67,6 @@ const ClassModule = React.memo(({ module }: ClassModuleProps) => {
   return (
     <>
       <Card className="overflow-hidden border-rose-100 shadow-sm hover:shadow-md transition-shadow">
-        <div className="relative h-48">
-          <LazyImage 
-            src={module.image} 
-            alt={module.title}
-            className="w-full h-full border-4 border-white rounded-t-lg shadow-md"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-t-lg" />
-        </div>
-        
         <CardHeader className="bg-white">
           <CardTitle className="text-rose-800 text-lg md:text-xl font-medium">
             {module.title}
